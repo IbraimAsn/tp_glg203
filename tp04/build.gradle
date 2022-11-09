@@ -1,0 +1,80 @@
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+
+    id 'eclipse'
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+// Configuration pour le plugin 'application'
+mainClassName = 'com.yaps.petstore.catalogApplication.Main'
+
+
+
+// Configuration pour le plugin java
+jar {
+    manifest {
+        attributes "Main-Class": "${mainClassName}"
+    }
+}
+
+
+run { 
+    standardInput = System.in 
+}
+
+repositories {
+    mavenCentral()    
+}
+
+dependencies {
+    // Use JUnit Jupiter for testing.
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'org.dbunit:dbunit:2.7.3'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.25'
+
+}
+
+
+eclipse {
+  project {
+    // prevent project names collision in Eclipse!
+    name = 'tp04'
+    }
+}
+
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+task distClean {
+  dependsOn("clean")
+  doLast {
+    delete "dist"
+    delete "bin"
+    delete ".classpath"
+    delete ".gradle"
+    delete ".nb-gradle"
+    delete ".project"
+    delete ".settings"
+    delete ".vscode"
+    delete '.DS_Store'
+    delete '.idea'
+    // vérifier si le code ci-dessous est toujours d'actualité avec
+    // l'évolution du système d'évaluation ?
+    // Les langages faiblement typés c'est la MAL.
+    fileTree(dir: 'libs', include:'*', excludes: ['README.md', '.gitignore']).visit { f -> delete f.file}
+  }
+}

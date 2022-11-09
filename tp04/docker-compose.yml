@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  db:
+    container_name: tp04
+    image: mariadb:10.8.3-jammy
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+    environment:
+      MARIADB_ROOT_PASSWORD: glg203
+      MARIADB_DATABASE: petstore03
+
+
