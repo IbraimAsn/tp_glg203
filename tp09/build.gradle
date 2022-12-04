@@ -1,0 +1,87 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+  id 'java'
+}
+
+
+group = 'glg203'
+version = '0.0.1-SNAPSHOT'
+compileJava.options.encoding = 'UTF-8'
+
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+
+// numéros de version des quelques bibliothèques 
+// non gérées par SpringBoot
+
+ext {
+	materialUiVersion = "0.15.1"
+	webLocatorVersion = "0.46"
+  bulmaVersion = "0.9.4"
+}
+
+
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+test {
+  useJUnitPlatform()
+}
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'	
+  implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'	
+  implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
+	// les webjars sont un moyen d'inclure des ressources web
+	// (javascript, css...) dans une application Spring 
+	// sans passer par une infrastructure javascript comme node.
+  implementation "org.webjars.npm:bulma:${bulmaVersion}"
+	// Pour ne pas avoir à donner les numéros de version des framework JS (etc.)
+	// dans les templates :
+	implementation "org.webjars:webjars-locator:${webLocatorVersion}"
+
+  // On force le serveur à une version de jetty qui supporte javax.  
+  implementation 'org.springframework.boot:spring-boot-starter-jetty:2.7.5'
+  runtimeOnly 'mysql:mysql-connector-java:8.0.25'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'    
+  testImplementation 'org.seleniumhq.selenium:htmlunit-driver:4.6.0'  
+
+  // Gestion des évolutions de la base de données.
+	implementation 'org.flywaydb:flyway-core'
+  implementation "org.flywaydb:flyway-mysql"
+
+  // Sécurité
+  implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+
+task distClean {
+  dependsOn("clean")
+  doLast {
+    delete "bin"
+    delete ".classpath"
+    delete ".gradle"
+    delete ".nb-gradle"
+    delete ".project"
+    delete ".settings"
+    delete ".vscode"
+    delete '.DS_Store'
+    delete '.idea'
+  }
+}

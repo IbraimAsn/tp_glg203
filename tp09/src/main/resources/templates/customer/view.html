@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Yet another Pet Store</title>
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>YAPS</h1>
+    </header>
+
+    <main class="container">
+
+        <h1 class="title">
+            [[#{customer.information}]] [[${customer.id}]]
+        </h1>
+
+        <div class="content">
+            <table class="table">
+                <tr>
+                    <th>[[#{user.username}]]</th>
+                    <td>[[${customer.username}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.id}]]</th>
+                    <td>[[${customer.id}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.firstname}]]</th>
+                    <td>[[${customer.firstname}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.lastname}]]</th>
+                    <td>[[${customer.lastname}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.email}]]</th>
+                    <td>[[${customer.email}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.telephone}]]</th>
+                    <td>[[${customer.telephone}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.street1}]]</th>
+                    <td>[[${customer.street1}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.street2}]]</th>
+                    <td>[[${customer.street2}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.city}]]</th>
+                    <td>[[${customer.city}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.state}]]</th>
+                    <td>[[${customer.state}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.zipcode}]]</th>
+                    <td>[[${customer.zipcode}]]</td>
+                </tr>
+                <tr>
+                    <th>[[#{customer.country}]]</th>
+                    <td>[[${customer.country}]]</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </main>
+
+    <th:block th:replace="layout :: footer-and-js">
+
+    </th:block>
+</body>
+
+</html>

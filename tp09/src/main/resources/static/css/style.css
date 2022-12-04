@@ -1,0 +1,13 @@
+
+header {
+    background-color: #99FFFF;
+}
+
+.center-text  {
+    text-align : center;
+}
+
+.footer-text {
+    text-align: center;
+    font-style: italic;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<th:block th:replace="layout :: common-head">
+		<title>Yet another Pet Store</title>
+	</th:block>
+</head>
+
+<body>
+	<header th:replace="layout :: header-and-nav">
+		<h1>YAPS</h1>
+	</header>
+
+	<div class="container">
+		<h2 th:text="#{customer.updateself.title}"></h2>
+
+		<strong>Écrivez le code de ce formulaire qui doit être utilisé par UpdateSelfCustomerDataController</strong>
+		
+		<form action='#' method='post' class="box">
+		
+		</form>
+
+	</div>
+	<th:block th:replace="layout :: footer-and-js">
+
+	</th:block>
+</body>
+
+</html>

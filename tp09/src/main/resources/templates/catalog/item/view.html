@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <th:block th:replace="layout :: common-head">
+    <title>Yet another Pet Store</title>
+  </th:block>
+</head>
+
+<body>
+  <header th:replace="layout :: header-and-nav">
+    <h1>YAPS</h1>
+  </header>
+  <main class="container">
+    <h1 class="title">[[${item.productName}]]</h1>
+    <article class="media block">
+      <figure class="media-left">
+        <p class="image is-128x128">
+          <img src="#" th:src="@{/img/{path}(path=${item.imagePath})}">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>[[${item.name}]]</strong>
+          </p>
+          <p>
+            [[#{item.cost}]] [[${item.unitCost}]]
+          </p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <th:block th:replace="layout :: footer-and-js">
+  </th:block>
+</body>
+
+</html>

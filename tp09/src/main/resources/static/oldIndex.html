@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer management</title>
+</head>
+<body>
+    
+    <h1>View Customer</h1>
+
+    <form method="get" action="view">
+        <fieldset>
+            <legend>Search Customer</legend>
+            <label>Customer id: <input type="text" name="id"><button>search</button></label>
+        </fieldset>
+    </form>
+
+    <form method="post" action="create">
+        <fieldset>
+            <legend>Create Customer</legend>
+            <div><label>First name (*): <input type="text" name="firstname"></label></div>
+            <div><label>Last name (*): <input type="text" name="lastname"></label></div>
+            <div><label>Telephone: <input type="text" name="telephone"></label></div>
+            <div><label>Street 1: <input type="text" name="street1"></label></div>
+            <div><label>Street 2: <input type="text" name="street2"></label></div>
+            <div><label>City: <input type="text" name="city"></label></div>
+            <div><label>Zip Code: <input type="text" name="zipcode"></label></div>
+            <div><label>State: <input type="text" name="state"></label></div>
+            <div><label>Country: <input type="text" name="country"></label></div>
+            <div><button>create</button></div>
+        </fieldset>
+    </form>
+    
+</body>
+</html>

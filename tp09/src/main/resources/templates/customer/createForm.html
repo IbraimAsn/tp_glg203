@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<th:block th:replace="layout :: common-head">
+		<title>Yet another Pet Store</title>
+	</th:block>
+</head>
+
+<body>
+	<header th:replace="layout :: header-and-nav">
+		<h1>YAPS</h1>
+	</header>
+
+	<div class="container">
+		<h2 th:text="#{customer.creation.form}"></h2>
+
+		<form action='#' th:action="@{/customer/create}" method='post' class="box" th:object="${customerForm}">
+			<div class="message is-danger" th:if="${#fields.hasGlobalErrors()}" th:errors="*{global}"></div>
+
+			<div class="field">
+				<label class="label">[[#{user.username}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{username}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{user.password}]]</label>
+				<div class="control">
+					<input class="input" type="password" th:field="*{password1}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('password1')}" th:errors="*{password1}">
+				</div>
+			</div>
+
+
+			<div class="field">
+				<label class="label">[[#{user.password2}]]</label>
+				<div class="control">
+					<input class="input" type="password" th:field="*{password2}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}">
+				</div>
+			</div>
+
+
+			<div class="field">
+				<label class="label">[[#{customer.firstname}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{firstname}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.lastname}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{lastname}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.email}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{email}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.telephone}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{telephone}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.street1}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{street1}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('street1')}" th:errors="*{street1}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.street2}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{street2}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('street2')}" th:errors="*{street2}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.city}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{city}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.zipcode}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{zipcode}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.state}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{state}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">[[#{customer.country}]]</label>
+				<div class="control">
+					<input class="input" type="text" th:field="*{country}">
+				</div>
+				<div class="message is-danger" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">
+				</div>
+			</div>
+
+			<div class="field is-grouped">
+				<div class="control">
+					<button class="button is-link">Submit</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<th:block th:replace="layout :: footer-and-js">
+
+	</th:block>
+</body>
+
+</html>

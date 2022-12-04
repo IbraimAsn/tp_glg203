@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Yet another Pet Store</title>        
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>YAPS</h1>
+    </header>
+    <main class="center-text">
+        <map name="estoremap">
+            <area alt="Birds" coords="72,2,280,250" shape="RECT" th:href="@{/category/view?id=BIRDS}" />
+            <area alt="Fish" coords="2,180,72,250" shape="RECT" th:href="@{/category/view?id=FISH}" />
+            <area alt="Dogs" coords="60,250,130,320" shape="RECT" th:href="@{/category/view?id=DOGS}" />
+            <area alt="Reptiles" coords="140,270,210,340" shape="RECT"
+                th:href="@{/category/view?id=REPTILES}" />
+            <area alt="Cats" coords="225,240,295,310" shape="RECT" th:href="@{/category/view?id=CATS}" />
+            <area alt="Birds" coords="280,180,350,250" shape="RECT" th:href="@{/category/view?id=BIRDS}" />
+        </map>
+        <img th:src="@{/img/splash.gif}" height="355" usemap="#estoremap" width="350" />
+    </main>
+    <th:block th:replace="layout :: footer-and-js">
+
+    </th:block>
+</body>
+
+</html>

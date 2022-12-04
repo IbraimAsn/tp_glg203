@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="layout :: common-head">
+        <title>Yet another Pet Store</title>
+    </th:block>
+</head>
+
+<body>
+    <header th:replace="layout :: header-and-nav">
+        <h1>YAPS</h1>
+    </header>
+    <div class="container">
+        <h2 th:text="#{user.connection.title}" class="title"></h2>
+        <div class="box message is-danger" th:if="${loginError}" th:text="#{user.loginFailed}"></div>
+
+        <form class="box" th:action="@{/login}" method="POST">
+            <div class="field">
+                <label class="label">[[#{user.username}]]</label>
+                <div class="control">
+                    <input class="input" type="text" id="username" name="username">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">[[#{user.password}]]</label>
+                <div class="control">
+                    <input class="input" type="text" id="password" name="password">
+                </div>
+            </div>
+            <div class="field is-grouped">
+                <div class="control">
+                    <button class="button is-link">[[#{user.doLogin}]]</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:replace="layout :: footer-and-js">
+
+
+    </th:block>
+</body>
+
+</html>
